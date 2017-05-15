@@ -42,8 +42,10 @@ public class QuickSort {
 			return;
 		}
 		int partitionIndex = partition(a, start, end);
-		quickSort(start, partitionIndex - 1);
-		quickSort(partitionIndex + 1, end);
+		//quickSort(start, partitionIndex - 1);
+		//quickSort(partitionIndex + 1, end);
+		quickSort(start, partitionIndex );
+		quickSort(partitionIndex + 1, 1);
 
 	}
 

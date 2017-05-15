@@ -48,25 +48,30 @@ public class CheckFrequency {
 		System.out.println("The repeating elements are : ");
 
 		for (i = 0; i < size; i++) {
-			if (arr[Math.abs(arr[i])] >= 0)
+			
+			if (arr[Math.abs(arr[i])] >= 0){
 				arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
-			else
+			}else{
 				System.out.print(Math.abs(arr[i]) + " ");
+			}
 		}
+		 System.out.println(" ");
+			
 	}
+	
 
 	/* Driver program to test the above function */
 	public static void main(String[] args) {
 
-		// int arr[] = {4, 2, 4, 5, 2, 3, 1};
-		int[] arr = new int[] { 11, 15, 17, 15, 23, 30, 35, 41, 45 };
-		int arr_size = arr.length;
-		//printRepeating(arr, arr_size);
-		
-		 int a[] = {4, 2, 4, 5, 2, 4, 1};
-		 printArray(a);
-		 int[] result1= checkfrequency(a);
+		 int a[] = {4, 2, 4, 2, 2, 2, 1};		
+		int arr_size = a.length;
+		printRepeating(a, arr_size);		
+		 int a1[] = {4, 2, 4, 2, 2, 2, 1};		
+		 System.out.println("a1:");
+		 printArray(a1);
+		 int[] result1= checkfrequency(a1);
 		 System.out.println(result1[0] +" is repeated " + result1[1] + " times.");
+		
 	}
 
 	public static void printArray(int[] a) {
