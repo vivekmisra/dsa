@@ -14,7 +14,8 @@
 package chapter10sorting.core;
 
 public class MergeSort {
-	static Integer[] a = new Integer[] { 2, 4, 1, 6, 8, 5, 3, 7 };
+	//static Integer[] a = new Integer[] { 2, 4, 1, 6, 8, 5, 3, 7 };
+	static Integer[] a = new Integer[] { 3,1,4,5,9,2,6,8,7};
 
 	public MergeSort() {
 		// TODO Auto-generated constructor stub
@@ -47,10 +48,21 @@ public class MergeSort {
 		}
 		sort(left);
 		sort(right);
+		 System.out.println("***begin merge***");
 		merge(a,left,right);
+		 System.out.println("***end merge***");
 	}
 
 	private static void merge( Comparable[] a,Comparable[] left, Comparable[] right) {
+		System.out.print("*** printArray(Comparable[] left):");
+		printArray(left) ;
+		 System.out.println();
+		System.out.print("*** printArray(Comparable[] right):");
+		printArray(right) ;
+		 System.out.println();
+		System.out.print("*** printArray(Comparable[] a):");
+		printArray(a) ;
+		 System.out.println();
 		int leftLength = left.length;
 		int rightLength = right.length;
 		int aLength = a.length;
@@ -58,12 +70,14 @@ public class MergeSort {
 		int j=0;
 		int k=0;
 		while(i<leftLength && j<right.length){
+			System.out.print("*** (left["+i+"].compareTo(right["+j+"])="+(left[i].compareTo(right[j]))); 
 			if(left[i].compareTo(right[j]) <= 0){
 				a[k++] = left[i++];
 			}else{
 				a[k++]= right[j++];
 				
-			}				
+			}
+			
 		}
 		while(i<leftLength){
 			a[k++] = left[i++];
@@ -73,10 +87,13 @@ public class MergeSort {
 			
 			a[k++]= right[j++];
 		}
+		System.out.println();
+		 printArray(a) ;
+		 System.out.println();
 		
 	}
 	
-	  private static void printArray(Integer[] anArray) {
+	  private static void printArray(Comparable[] anArray) {
           StringBuilder sb = new StringBuilder();
           for (int i = 0; i < anArray.length; i++) {
              if (i > 0) {

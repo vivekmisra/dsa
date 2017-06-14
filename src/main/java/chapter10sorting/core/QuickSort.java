@@ -15,7 +15,9 @@ package chapter10sorting.core;
 
 public class QuickSort {
 
-	static Integer[] a = new Integer[] { 11, 2, 1, 6, 8, 5, 3, 4 };
+	//static Integer[] a = new Integer[] { 11, 2, 1, 6, 8, 5, 3, 4 };
+	static Integer[] a = new Integer[] { 3,1,4,5,9,2,6,8,7};
+
 
 	public QuickSort() {
 		// TODO Auto-generated constructor stub
@@ -41,11 +43,9 @@ public class QuickSort {
 		if (start >= end) {
 			return;
 		}
-		int partitionIndex = partition(a, start, end);
-		//quickSort(start, partitionIndex - 1);
-		//quickSort(partitionIndex + 1, end);
+		int partitionIndex = partition(a, start, end);		
 		quickSort(start, partitionIndex );
-		quickSort(partitionIndex + 1, 1);
+		quickSort(partitionIndex + 1, end);
 
 	}
 
@@ -56,13 +56,17 @@ public class QuickSort {
 			printArray(a, leftCursor, rightCursor, pivot);
 
 			while (a[leftCursor] < pivot) {
+				System.out.println("*** a[leftCursor] < pivot => "+  a[leftCursor] +"<" + pivot+" *****");
 				leftCursor++;
-				System.out.println("*** a[f] < pivot*****");
+				System.out.println("*** leftCursor++ =>  a[leftCursor]= "+  a[leftCursor] );
+				System.out.println("*** Is a[leftCursor] < pivot => "+  (a[leftCursor] < pivot) +" *****");
 				printArray(a, leftCursor, rightCursor, pivot);
 			}
 			while (a[rightCursor] > pivot) {
+				System.out.println("*** a[rightCursor] > pivot => "+  a[rightCursor] +">" + pivot+" *****");
 				rightCursor--;
-				System.out.println("*** a[rightCursor] > pivot*****");
+				System.out.println("*** rightCursor-- =>  a[rightCursor]= "+  a[rightCursor] );
+				System.out.println("*** Is a[rightCursor] >pivot => "+  (a[rightCursor] > pivot) +" *****");
 				printArray(a, leftCursor, rightCursor, pivot);
 			}
 			System.out.println("Before swapping...");

@@ -12,9 +12,9 @@
 
 package chapter03linkedlists;
 public class NthNodeFromEnd {
-	private int counter;
+	private static int counter;
 
-	public ListNode nthNodeFromEnd(ListNode head, int Nth) {
+	public static ListNode nthNodeFromEnd(ListNode head, int Nth) {
 	    if(head != null) {
 	        nthNodeFromEnd(head.next, Nth);
 	        counter++;
@@ -44,5 +44,37 @@ public class NthNodeFromEnd {
             nth = nth.next;
         }
         return head;
+    }
+    public static void printLinkedList(ListNode head) {
+		
+		while (head != null) {
+			System.out.print(head.data + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+    
+  
+    public static void main(String[] args) {
+    	ListNode a = new ListNode(4);
+		ListNode b = new ListNode(6);
+		ListNode c = new ListNode(1);
+		ListNode d = new ListNode(9);
+		ListNode e = new ListNode(5);
+		ListNode f = new ListNode(3);
+		ListNode g = new ListNode(7);
+		ListNode h = new ListNode(2);
+		ListNode head = a;
+		a.next = b;
+		b.next = c;
+		c.next = d;
+		d.next = e;
+		e.next = f;
+		f.next = g;
+		g.next = h;
+		printLinkedList(head);
+		ListNode nth = nthNodeFromEndIterative( head, 3);
+		printLinkedList(nth);
+    	
     }
 }

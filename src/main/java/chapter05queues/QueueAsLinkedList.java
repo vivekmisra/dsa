@@ -40,7 +40,7 @@ public class QueueAsLinkedList {
 			throw new NoSuchElementException();
 		}
 		Integer data = list.getHead().getData();
-		list.removeByMatchedData(data);
+		list.removeFromBegin();
 		--length;
 		return data;
 	}
